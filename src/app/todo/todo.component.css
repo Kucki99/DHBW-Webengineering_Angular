@@ -1,0 +1,18 @@
+div {
+    margin: 1em; 
+    padding: 1em;
+}
+
+button {
+}
+
+input {
+    display: inline;
+}
+
+p {
+    display: inline;
+}
+:host.done {
+    text-decoration: line-through;
+}
