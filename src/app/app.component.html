@@ -16,6 +16,11 @@
 <button (mousemove)="onMouseMove()" (click)="onClick($event)">
   Yo!
 </button>
+<br>
+<button (click)="toggle()">Toggle</button>
+<div *ngIf="show">
+  I am visible!
+</div>
 <app-todo [todo]="myTodo"></app-todo>
 
 <router-outlet></router-outlet>

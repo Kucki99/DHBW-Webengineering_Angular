@@ -18,6 +18,7 @@ export class AppComponent {
     done: false,
     id: 3
   };
+  show: boolean;
 
   constructor(@Inject(APP_NAME) name: string, todoService: TodoService) {
     console.log(name);
@@ -37,5 +38,9 @@ export class AppComponent {
     const rnd2 = Math.round(Math.random() * 255);
     const rnd3 = Math.round(Math.random() * 255);
     this.color = `rgb(${rnd1}, ${rnd2}, ${rnd3})`;
+  }
+
+  toggle() {
+    this.show = !this.show;
   }
 }
