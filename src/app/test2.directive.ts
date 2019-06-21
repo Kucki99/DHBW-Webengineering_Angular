@@ -9,7 +9,7 @@ export class Test2Directive {
 
   @HostListener('click')
   onClick() {
-    console.log('Clicked!');
+    //console.log('Clicked!');
   }
 
 }

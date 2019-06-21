@@ -1,4 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<!--
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -21,6 +22,14 @@
 <div *ngIf="show">
   I am visible!
 </div>
+-->
+<ng-container *ngFor="let todo of todos">
+  <app-todo [todo]="todo"></app-todo>
+</ng-container>
 <app-todo [todo]="myTodo"></app-todo>
 
-<router-outlet></router-outlet>
+<form>
+  <input type="text">
+
+  <button>Hinzufügen</button>
+</form>

@@ -1,5 +1,5 @@
-div {
-    margin: 1em; 
+label {
+    margin: 1em;
     padding: 1em;
 }
 
@@ -10,9 +10,8 @@ input {
     display: inline;
 }
 
-p {
-    display: inline;
-}
+/*
 :host.done {
     text-decoration: line-through;
 }
+*/

@@ -1,6 +1,7 @@
 import { Component, InjectionToken, NgModule, Inject } from '@angular/core';
 import { APP_NAME } from './appName';
 import { TodoService } from './todo.service';
+import { Todo } from './todo';
 
 @Component({
   selector: 'app-root',
@@ -10,22 +11,22 @@ import { TodoService } from './todo.service';
 export class AppComponent {
 
   title = 'todoApp';
-  value = 'Hello!'
+  value = 'Hello!';
   color = 'pink';
   exampleNumber = 5.3156;
-  myTodo = {
-    name: "Wash clothes",
+  myTodo: Todo = {
     done: false,
-    id: 3
+    name: 'Wash clothes',
+    id: 1
   };
   show: boolean;
+  todos: Todo[];
 
   constructor(@Inject(APP_NAME) name: string, todoService: TodoService) {
-    console.log(name);
-    console.log(todoService.getAll());
+    todoService.getAll().subscribe(todos => this.todos = todos);
   }
 
-  onClick({x, y}: MouseEvent) {
+  onClick({ x, y }: MouseEvent) {
     console.log(`X: ${x}, Y: ${y}`);
   }
 
@@ -40,7 +41,9 @@ export class AppComponent {
     this.color = `rgb(${rnd1}, ${rnd2}, ${rnd3})`;
   }
 
+  /*
   toggle() {
     this.show = !this.show;
   }
+  */
 }

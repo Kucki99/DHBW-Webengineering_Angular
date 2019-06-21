@@ -8,6 +8,7 @@ import { TodoComponent } from './todo/todo.component';
 import { TestDirective } from './test.directive';
 import { Test2Directive } from './test2.directive';
 import { APP_NAME } from './appName';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { APP_NAME } from './appName';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [{provide: APP_NAME, useValue: 'My App'}],
   bootstrap: [AppComponent]
