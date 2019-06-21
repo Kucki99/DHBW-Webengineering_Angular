@@ -10,6 +10,8 @@ import { TestDirective } from './test.directive';
 import { Test2Directive } from './test2.directive';
 import { APP_NAME } from './appName';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [{ provide: APP_NAME, useValue: 'My App' }],
   bootstrap: [AppComponent]

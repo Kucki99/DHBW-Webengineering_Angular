@@ -2,6 +2,8 @@ import { Component, InjectionToken, NgModule, Inject } from '@angular/core';
 import { APP_NAME } from './appName';
 import { TodoService } from './todo.service';
 import { Todo } from './todo';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -20,11 +22,11 @@ export class AppComponent {
     id: 1
   };
   show: boolean;
-  todos: Todo[];
+  todos$: Observable<Todo[]>;
   todoService: TodoService;
 
   constructor(@Inject(APP_NAME) name: string, todoService: TodoService) {
-    todoService.getAll().subscribe(todos => this.todos = todos);
+    this.todos$ = todoService.getAll();
     this.todoService = todoService;
   }
 
@@ -44,7 +46,9 @@ export class AppComponent {
   }
 
   onSubmit(): void {
-    this.todoService.create(new Todo(this.title)).subscribe();
+    this.todos$ = this.todoService.create(new Todo(this.title)).pipe(
+      switchMap(() => this.todoService.getAll())
+    );
   }
 
   /*

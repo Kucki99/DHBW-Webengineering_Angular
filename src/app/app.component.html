@@ -23,7 +23,7 @@
   I am visible!
 </div>
 -->
-<ng-container *ngFor="let todo of todos">
+<ng-container *ngFor="let todo of todos$ | async">
   <app-todo [todo]="todo"></app-todo>
 </ng-container>
 <app-todo [todo]="myTodo"></app-todo>
