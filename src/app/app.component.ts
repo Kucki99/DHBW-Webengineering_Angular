@@ -10,7 +10,7 @@ import { Todo } from './todo';
 })
 export class AppComponent {
 
-  title = 'todoApp';
+  title = 'Neues Todo';
   value = 'Hello!';
   color = 'pink';
   exampleNumber = 5.3156;
@@ -21,9 +21,11 @@ export class AppComponent {
   };
   show: boolean;
   todos: Todo[];
+  todoService: TodoService;
 
   constructor(@Inject(APP_NAME) name: string, todoService: TodoService) {
     todoService.getAll().subscribe(todos => this.todos = todos);
+    this.todoService = todoService;
   }
 
   onClick({ x, y }: MouseEvent) {
@@ -39,6 +41,10 @@ export class AppComponent {
     const rnd2 = Math.round(Math.random() * 255);
     const rnd3 = Math.round(Math.random() * 255);
     this.color = `rgb(${rnd1}, ${rnd2}, ${rnd3})`;
+  }
+
+  onSubmit(): void {
+    this.todoService.create(new Todo(this.title)).subscribe();
   }
 
   /*

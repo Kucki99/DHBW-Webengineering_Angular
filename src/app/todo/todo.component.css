@@ -1,13 +1,18 @@
 label {
-    margin: 1em;
-    padding: 1em;
+  padding: 1em;
 }
 
 button {
 }
 
 input {
-    display: inline;
+  display: inline;
+}
+
+:host {
+  margin: 1em;
+  padding: 1em;
+  display: block;
 }
 
 /*

@@ -28,8 +28,9 @@
 </ng-container>
 <app-todo [todo]="myTodo"></app-todo>
 
-<form>
-  <input type="text">
+<form style="margin: 2em;" (ngSubmit)="onSubmit()">
+  <!-- two-way data binding with [()] -->
+  <input type="text" name="title" [(ngModel)]="title">
 
   <button>Hinzufügen</button>
 </form>
