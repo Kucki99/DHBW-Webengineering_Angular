@@ -1,7 +1,7 @@
 import { Component, InjectionToken, NgModule, Inject } from '@angular/core';
-import { APP_NAME } from './appName';
-import { TodoService } from './todo.service';
-import { Todo } from './todo';
+import { APP_NAME } from '../appName';
+import { TodoService } from '../services/todo.service';
+import { Todo } from '../todo';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
