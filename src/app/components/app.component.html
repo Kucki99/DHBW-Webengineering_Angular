@@ -29,8 +29,10 @@
 <app-todo [todo]="myTodo"></app-todo>
 
 <form style="margin: 2em;" (ngSubmit)="onSubmit()">
-  <!-- two-way data binding with [()] -->
-  <input type="text" name="title" [(ngModel)]="title">
-
-  <button>Hinzufügen</button>
+  <mat-form-field>
+    <!-- two-way data binding with [()] -->
+    <input matInput placeholder="Type in" name="title" [(ngModel)]="title">
+  </mat-form-field>
+  <br>
+  <button mat-raised-button>Add</button>
 </form>

@@ -14,7 +14,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../../environments/environment';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatCardModule, MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,9 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     MatButtonModule, 
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule,
+    MatInputModule
   ],
   providers: [{ provide: APP_NAME, useValue: 'My App' }],
   bootstrap: [AppComponent]
